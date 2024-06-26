@@ -1,71 +1,84 @@
-Diet Senior
+# Diet Senior
 Sistema para controle de calorias focado em pessoas idosas.
 
-Tecnologias utilizadaas
-Client (front-end)
-React (biblioteca JavaScript)
-React Router DOM para rotas
-Server/API (back-end)
-Node.js (motor de execução JavaScript)
-Express (framework)
-MySQL (banco de dados)
-Como montar seu ambiente de desenvolvimento
+
+## Tecnologias utilizadaas
+### Client (front-end)
+- React (biblioteca JavaScript)
+  - React Router DOM para rotas
+
+### Server/API (back-end)
+- Node.js (motor de execução JavaScript)
+  - Express (framework)
+- MySQL (banco de dados)
+
+## Como montar seu ambiente de desenvolvimento
 Clonar este projeto e entrar no diretório.
 
-Requisitos
-Node.js versão 20.9.0 LTS
-Server
-Entrar no diretório server via terminal e então executar o comando npm install para instalar as dependências.
-Abrir o arquivo script_create_database.sql usando um editor de texto, copiar o conteúdo do arquivo e executar no gerenciador do seu banco de dados MySQL para criar o banco da nossa aplicação.
-Dentro do diretório server, criar um arquivo .env e inserir uma variável de ambiente DATABASE_URL com a string de conexão do banco de dados, seguindo o exemplo a seguir (substitua os valores username, password e localhost de acordo com a configuração do seu banco de dados):
-DATABASE_URL='mysql://username:password@localhost/dietsenior'
-Client
-Entrar no diretório client executando o comando cd client e então executar o comando npm install para instalar as dependências.
-Dentro do direteório client, criar um criar um arquivo .env e inserir uma variável de ambiente VITE_API_BASE_URL com a URL do ambiente que tá rodando o server, exemplo:
-VITE_API_BASE_URL = 'http://localhost:3000'
-Para iniciar o app front-end, rodar o comando npm run dev.
-Funcionamento
-Front-end
-Login: Tela para realizar login na aplicação, informando o seu usuário e senha.
+### Requisitos
+- Node.js versão 20.9.0 LTS
 
-Registro: Tela para cadastro na aplicação.
+### Server
+- Entrar no diretório ``server`` via terminal e então executar o comando `npm install` para instalar as dependências.
+- Abrir o arquivo [script_create_database.sql](server/script_create_database.sql) usando um editor de texto, copiar o conteúdo do arquivo e executar no gerenciador do seu banco de dados MySQL para criar o banco da nossa aplicação.
+- Dentro do diretório server, criar um arquivo `.env` e inserir uma variável de ambiente `DATABASE_URL` com a string de conexão do banco de dados, seguindo o exemplo a seguir (substitua os valores username, password e localhost de acordo com a configuração do seu banco de dados):
+  ```env
+  DATABASE_URL='mysql://username:password@localhost/dietsenior'
+  ```
 
-Home: Tela de boas vindas.
 
-Calorias: Tela para exibir a contagem de calorias, sendo que a aplicação já define um limite de 2500 para homens e 2000 para mulheres.
+### Client
+- Entrar no diretório client executando o comando `cd client` e então executar o comando `npm install` para instalar as dependências.
+- Dentro do direteório client, criar um criar um arquivo `.env` e inserir uma variável de ambiente `VITE_API_BASE_URL` com a URL do ambiente que tá rodando o server, exemplo:
+  ```env
+  VITE_API_BASE_URL = 'http://localhost:3000'
+  ```
+- Para iniciar o app front-end, rodar o comando `npm run dev`.
 
-Tabela de alimentos: Aqui é possível visualizar os alimentos já cadastrados, cadastrar novos alimentos e também registrar o consumo de um alimento.
+## Funcionamento
+### Front-end
 
-Calculadora IMC: Nessa tela é possível calcular o seu índice IMC, informando seu peso e altura.
+**Login:** Tela para realizar login na aplicação, informando o seu usuário e senha.
 
-Alterar dados pessoais: Aqui é possível alterar todos os dados cadastrados na tela de registro.
+**Registro:** Tela para cadastro na aplicação.
 
-Logout: Realiza o logout da aplicação.
+**Home:** Tela de boas vindas.
 
-Rotas API
-POST /usuarios params: { usuario, senha, peso, altura, sexo, idade } : Rota para cadastrar um novo usuário.
+**Calorias:** Tela para exibir a contagem de calorias, sendo que a aplicação já define um limite de 2500 para homens e 2000 para mulheres.
 
-PUT /usuarios/:id params: { usuario, senha, peso, altura, sexo, idade } : Rota para atualizar um usuário.
+**Tabela de alimentos:** Aqui é possível visualizar os alimentos já cadastrados, cadastrar novos alimentos e também registrar o consumo de um alimento.
 
-DELETE /usuarios/:id params: { } : Rota para remover um usuário.
+**Calculadora IMC:** Nessa tela é possível calcular o seu índice IMC, informando seu peso e altura.
 
-POST /login params: { usuario, senha } : Rota para realizar login.
+**Alterar dados pessoais:** Aqui é possível alterar todos os dados cadastrados na tela de registro.
 
-POST /alimentos params: { nome, calorias, quantidade } : Rota para cadastrar um novo alimento.
+**Logout:** Realiza o logout da aplicação.
 
-POST /alimentos params: { } : Rota para buscar um alimento.
+### Rotas API
 
-PUT /alimentos/:id params: { nome, calorias, quantidade } : Rota para editar um alimento.
+POST  `/usuarios` **params**: { usuario, senha, peso, altura, sexo, idade } : Rota para cadastrar um novo usuário.
 
-DELETE /alimentos/:id params: { } : Rota para remover um alimento.
+PUT `/usuarios/:id` **params**: { usuario, senha, peso, altura, sexo, idade } : Rota para atualizar um usuário.
 
-POST /calcularCalorias params: { usuarioId, alimentoId, quantidade } : Rota para registrar o consumo de um alimento e calcular as calorias.
+DELETE `/usuarios/:id` **params**: { } : Rota para remover um usuário.
 
-GET /totalCaloriasDiarias/:usuarioId params: { } : Rota para buscar o total de calorias consumidas por um usuário.
+POST `/login` **params**: { usuario, senha } : Rota para realizar login.
 
-Integrantes do projeto (Grupo 03)
+POST `/alimentos` **params**: { nome, calorias, quantidade } : Rota para cadastrar um novo alimento.
+
+POST `/alimentos` **params**: { } : Rota para buscar um alimento.
+
+PUT `/alimentos/:id` **params**: { nome, calorias, quantidade } : Rota para editar um alimento.
+
+DELETE `/alimentos/:id` **params**: { } : Rota para remover um alimento.
+
+POST `/calcularCalorias` **params**: { usuarioId, alimentoId, quantidade } : Rota para registrar o consumo de um alimento e calcular as calorias.
+
+GET `/totalCaloriasDiarias/:usuarioId` **params**: { } : Rota para buscar o total de calorias consumidas por um usuário.
+
+## Integrantes do projeto (Grupo 03)
+Lucas de Iuliis
+
 Thalles Diego Verneti Torma
 
 Leonardo Nestor Costa
-
-Lucas de Iuliis
